@@ -28,8 +28,8 @@ const typeDefs = gql`
     type Section {
         id: ID
         name: String
+        subjectId: ID
         students: [Student]
-        subjects: [Subject]
     }
 
     type Student {
