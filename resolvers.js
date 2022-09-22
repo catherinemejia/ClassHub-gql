@@ -23,18 +23,10 @@ const User = {
 }
 
 const Subject = {
-    sections: async(parent, args) => { //WIP
-        const response = await (await fetch(`${API_URL}/api/classes`)).json();
-        const classes = await response.filter(x => x.subjectId === parent.id);
-        const sections = await (await fetch(`${API_URL}/api/sections`)).json();
-        const sectionIds = await classes.map(element => {
-            return element["sectionId"];
-        });
-        const result = sectionIds.forEach(element => {
-            const filtered = sections.find(sections => sections.id === element);
-            return filtered;
-        })
-        console.log(result);
+    sections: async(parent, args) => {
+        const response = await (await fetch(`${API_URL}/api/sections`)).json();
+        const result = response.filter(x => x.subjectId === parent.subjectId);
+        return result;
     }
 }
 
@@ -44,10 +36,6 @@ const Section = {
         const result = response.filter(x => x.sectionId === parent.id);
         return result;
     },
-    subjects: async(parent, args) => { //WIP
-        const response = await (await fetch(`${API_URL}/api/students`)).json();
-        return result;
-    }
 }
 
 const Student = {
