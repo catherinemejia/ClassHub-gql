@@ -24,9 +24,8 @@ const User = {
 
 const Subject = {
     sections: async(parent, args) => {
-        const response = await (await fetch(`${API_URL}/api/sections`)).json();
-        const result = response.filter(x => x.subjectId === parent.subjectId);
-        return result;
+        const response = await (await fetch(`${API_URL}/api/sections?subjectId=${parent.id}`)).json();
+        return response;
     }
 }
 
