@@ -2,7 +2,7 @@ const { graphql } = require('graphql');
 const typeDefs = require("./typeDefs");
 const resolvers = require("./resolvers");
 const { ApolloServer } = require('apollo-server');
-const { TEACHER_QUERY, PARENT_QUERY } = require('./queries')
+const { TEACHER_QUERY, PARENT_QUERY } = require('./test-queries')
 
 describe("resolvers", () => {
     const testServer = new ApolloServer({
